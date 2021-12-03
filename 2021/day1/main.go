@@ -17,7 +17,7 @@ func main() {
 
 	scanner := bufio.NewScanner(file)
 
-	for i:=0; scanner.Scan(); i++ {
+	for i := 0; scanner.Scan(); i++ {
 		depth, err := strconv.Atoi(scanner.Text())
 		if err != nil {
 			panic(err)
@@ -33,7 +33,7 @@ func main() {
 func countDepthIncreases(depths []int) int {
 	numIncreases := 0
 	prev := depths[0]
-	for i:=1; i < len(depths); i++ {
+	for i := 1; i < len(depths); i++ {
 		if prev < depths[i] {
 			numIncreases++
 		}
@@ -53,7 +53,7 @@ func countWindowedIncreases(depths []int) int {
 
 	numIncreases := 0
 	prev := depths[0] + depths[1] + depths[2]
-	for i:=1; i < numDepths - 2; i++ {
+	for i := 1; i < numDepths-2; i++ {
 		current := depths[i] + depths[i+1] + depths[i+2]
 		if prev < current {
 			numIncreases++
